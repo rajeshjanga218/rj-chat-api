@@ -9,8 +9,11 @@ function generateTokenAndSetCookie(userId, res) {
     maxAge: 1 * 24 * 60 * 1000,
     httpOnly: true, //prevent XSS attack
     sameSite: "strict", // CSRF attack
-    secure: process.env.NODE_ENV === "production" ? true : false,
+    secure: true,
+    // secure: process.env.NODE_ENV === "production" ? true : false,
   });
+
+  return token;
 }
 
 export default generateTokenAndSetCookie;

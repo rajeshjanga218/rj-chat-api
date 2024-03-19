@@ -55,16 +55,16 @@ export async function logIn(req, res) {
       password,
       user?.password || ""
     );
-    console.log("isPasswordCorrect", isPasswordCorrect);
     if (!user || !isPasswordCorrect) {
       return res.status(400).json({ error: "Invalid username or password" });
     }
-    generateTokenAndSetCookie(user._id, res);
+    const token = generateTokenAndSetCookie(user._id, res);
     res.status(200).json({
       _id: user.id,
       fullName: user.fullName,
       username: user.username,
       profilePic: user.profilePic,
+      token: token,
     });
   } catch (e) {
     console.log(e.message);

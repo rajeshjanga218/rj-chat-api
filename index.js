@@ -14,13 +14,14 @@ if (!validateEnv()) {
 const app = express();
 
 const PORT = process.env.PORT || 4000;
+app.use(cors());
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true, // If you're using cookies or sessions
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     credentials: true, // If you're using cookies or sessions
+//   })
+// );
 
 app.use(express.json());
 app.use(cookieParser());
