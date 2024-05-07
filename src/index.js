@@ -17,12 +17,12 @@ if (!validateEnv()) {
 const PORT = process.env.PORT || 4000;
 // app.use(cors());
 
-app.use(
-  cors({
-    origin: "https://rj-chat-web.onrender.com",
-    credentials: true, // If you're using cookies or sessions
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://rj-chat-web.onrender.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.use(express.json());
 app.use(cookieParser());
