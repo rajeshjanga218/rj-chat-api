@@ -3,4 +3,6 @@
 .env.dev
 .env.local
 
+/dist
+
 node_modules
