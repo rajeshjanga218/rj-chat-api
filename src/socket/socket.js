@@ -5,11 +5,11 @@ import express from 'express'
 const app = express()
 
 const server = http.createServer(app)
-console.log(process.env.SOCKET_CORS_ORIGIN)
+// console.log(process.env.UI_ORIGIN)
 
 const io = new Server(server,{
     cors:{
-        origin:[process.env.SOCKET_CORS_ORIGIN,"http://192.168.28.140:3000"],
+        origin:[process.env.UI_ORIGIN],
         methods:["GET","POST"]
     }
 })

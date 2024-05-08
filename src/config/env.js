@@ -13,7 +13,7 @@ const ENV = {
   //   DATABASE_USER: process.env.DATABASE_USER,
   //   DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
   //   DATABASE_PORT: process.env.DATABASE_PORT,
-  CONNECTION_STRING: process.env.CONNECTION_STRING,
+  DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
 
   // JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
 };
@@ -34,7 +34,7 @@ export function validateEnv() {
   return nulledKeys.length === 0;
 }
 
-export const CONNECTION_STRING = ENV.CONNECTION_STRING;
+export const DB_CONNECTION_STRING = ENV.DB_CONNECTION_STRING;
 export const PORT = ENV.PORT;
 
 // export const S3_BUCKET = {
